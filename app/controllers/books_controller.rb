@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+
+  before_action :set_book, only: [:edit, :create]
+
   def index
     @q = Book.ransack(params[:q])
     @books = @q.result(distinct: true)
@@ -19,11 +22,9 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = Book.find(params[:id])
   end
 
   def update
-    @book = Book.find(params[:id])
     if @book.update(book_params)
       redirect_to root_url, notice: "蔵書の更新が完了しました。"
     else
@@ -33,6 +34,10 @@ class BooksController < ApplicationController
   end
 
   private
+
+  def set_book
+    @book = Book.find(params[:id])
+  end
 
   def book_params
     params.require(:book).permit(:name, :author, :memo)
