@@ -1,16 +1,5 @@
 <%= notice %>
 
-<%= form_for @book do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :author %>
-  <%= f.text_field :author %>
-
-  <%= f.label :memo %>
-  <%= f.text_field :memo %>
-
-  <%= f.submit "登録する" %>
-<% end %>
+<%= render partial: "form", locals: {book: @book} %>
 
 <%= link_to '戻る', root_path %>
