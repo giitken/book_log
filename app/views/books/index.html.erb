@@ -2,6 +2,12 @@
 
 <h1>BookLog</h1>
 
+<%= search_form_for(@q) do |f| %>
+  <%= f.label :name_cont, "名称" %>
+  <%= f.search_field :name_cont %>
+  <%= f.submit   %>
+<% end %>
+
 <table>
   <tr>
     <th>書籍名</th>
