@@ -18,9 +18,17 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @book = Book.find(params[:id])
   end
 
   def update
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
+      redirect_to root_url, notice: "蔵書の更新が完了しました。"
+    else
+      flash.now[:notice] = "蔵書の更新が失敗しました。もう一度やり直してください。"
+      render :edit
+    end
   end
 
   private

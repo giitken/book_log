@@ -13,8 +13,9 @@
       <td><%= book.name %></td>
       <td><%= book.author %></td>
       <td><%= book.memo %></td>
+      <td><%= link_to "編集", edit_book_path(book) %></td>
     </tr>
   <% end %>
 </table>
 
-<%= link_to "新しい書籍を登録する", new_books_path %>
+<%= link_to "新しい書籍を登録する", new_book_path %>
