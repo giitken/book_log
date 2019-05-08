@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-  before_action :set_book, only: [:edit, :create]
+  before_action :set_book, only: [:edit, :update]
 
   def index
     @q = Book.ransack(params[:q])
